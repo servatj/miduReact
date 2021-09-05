@@ -5,14 +5,24 @@ import Gif from "./Gif";
 const ListOfGifs = ({ params }) => {
   const { keyword } = params;
   const [gifs, setGifs] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    requestsGifs({ keyword }).then(setGifs);
+    setLoading(true)
+    requestsGifs({ keyword })
+      .then(setGifs)
+      .then(data => setLoading(false));
   }, [keyword]);
 
-  return gifs.map(({ id, title, url }) => {
-    return <Gif key={id} id={id} title={title} url={url} />;
-  });
+  return <>
+    {
+      loading ?
+      <>Loading</>
+      : gifs.map(({ id, title, url }) => {
+        return <Gif key={id} id={id} title={title} url={url} />;
+      })
+    }
+  </>
 };
 
 export default ListOfGifs;
