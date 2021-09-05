@@ -13,6 +13,11 @@
   color: white;
 }
 
+.App-logo {
+  width: 100px;
+  height: 100px;
+}
+
 Button {
   font-size: 48px;
 
@@ -21,4 +26,9 @@ Button {
 a {
   text-decoration: none;
   color: white
+}
+
+li {
+  list-style-type: none;
+  text-align: left;
 }
