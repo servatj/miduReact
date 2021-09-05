@@ -8,15 +8,17 @@ export default function useGifs({ keyword, id }) {
 
     useEffect(() => {
       setLoading(true)
+      const createOrGetKeyword = keyword || localStorage.getItem('lastKeyword')
       if (id) {
         getSingleGif({ id })
         .then(setGifs)
         .then(data => setLoading(false));
       } else {
-        requestsGifs({ keyword })
+        requestsGifs({ keyword: createOrGetKeyword })
           .then(setGifs)
           .then(data => setLoading(false));
       }
+      localStorage.setItem('LastKeyword', keyword);
     }, [keyword, id]);
 
     return {loading, gifs}
