@@ -3,12 +3,13 @@
     border-radius: 6px;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
     margin: 16px;
     padding: 32px;
     width: 100%;
 }
 
-.Gid h4 {
+.Gif h4 {
     margin: 0;
 }
 
