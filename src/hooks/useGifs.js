@@ -6,7 +6,6 @@ export default function useGifs({ keyword, id }) {
     const [gifs, setGifs] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    console.log('id', id)
     useEffect(() => {
       setLoading(true)
       const createOrGetKeyword = keyword || localStorage.getItem('lastKeyword')
