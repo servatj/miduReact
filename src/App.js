@@ -1,16 +1,21 @@
-import { useState } from 'react';
 import './App.css';
 import ListOfGifs from './components/ListOfGifs'
+import { Route } from 'wouter';
 
 
 function App() {
-  const [ keyword, setKeyword ] = useState('cr7');
   return (
     <div className="App">
       <section className="App-content">
-        <ListOfGifs keyword={keyword} />
+        <h1>Show me the gif</h1>
+        <a href="/gif/cr7">cr7</a>
+        <a href="/gif/messi">Messi</a>
+        <a href="/gif/neymar">Ney</a>
+        <Route
+          component={ListOfGifs}
+          path="/gif/:keyword"
+        />
       </section>
-      <button onClick={() => setKeyword('messi')}>Change to real GOAT</button>
     </div>
   );
 }
