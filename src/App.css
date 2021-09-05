@@ -16,11 +16,24 @@
 .App-logo {
   width: 100px;
   height: 100px;
+  margin-bottom: 20px;
 }
 
 Button {
   font-size: 48px;
+}
 
+input[type="text"] {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+input {
+  height: 40px;
+}
+
+input::placeholder {
+  padding: 10px;
 }
 
 a {
