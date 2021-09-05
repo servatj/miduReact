@@ -1,4 +1,4 @@
-export default async function requestGifs({ keyword='morty' }) {
+export default async function requestGifs({ keyword }) {
         try {
           const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${keyword}&limit=5&offset=0&rating=G&lang=en`)
           return await response.json().then(({data}) => data.map(image => {
