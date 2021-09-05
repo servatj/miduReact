@@ -5,7 +5,7 @@ export default function gif({ id, url, title }) {
     <>
       <h4>{title}</h4>
       <h5>{id}</h5>
-      <img key={id} src={url} alt={`gif${title}`} />
+      <img src={url} alt={`gif${title}`} />
     </>
   );
 }

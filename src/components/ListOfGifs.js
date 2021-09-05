@@ -1,11 +1,10 @@
 import React from 'react';
-import gif from './Gif';
+import Gif from './Gif';
 
-const listOfGifs = ({id, title, url}) => {
-    return <Gif
-              id={id}
-              key={id}
-              title={title}
-              url={url}
-            />
+const ListOfGifs = ({ gifs = [] }) => {
+    return gifs.map(({ id, title, url }) => {
+      return <Gif key={id} id={id} title={title} url={url}/>
+    });
 }
+
+export default ListOfGifs;
