@@ -5,7 +5,6 @@ import Gif from "../Gif";
 
 const ListOfGifs = ({ params }) => {
   const { keyword, id } = params;
-  console.log({ keyword, id})
   const {loading, gifs} = useGifs({ keyword, id })
 
   return <>
