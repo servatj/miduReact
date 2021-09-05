@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from "react";
-import requestsGifs from '../../services/getGifs';
-import getSingleGif from '../../services/getGifsById';
+import Spinner from '../Spinner'
+import useGifs from '../../hooks/useGifs';
 
 import Gif from "../Gif";
 
-const ListOfGifs = ({ params = { keyword: 'messi' } }) => {
+const ListOfGifs = ({ params }) => {
   const { keyword, id } = params;
-  const [gifs, setGifs] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true)
-    if (id) {
-      getSingleGif({ id })
-      .then(setGifs)
-      .then(data => setLoading(false));
-    } else {
-      console.log({ keyword, id })
-      requestsGifs({ keyword })
-        .then(setGifs)
-        .then(data => setLoading(false));
-    }
-  }, [keyword, id]);
+  console.log({ keyword, id})
+  const {loading, gifs} = useGifs({ keyword, id })
 
   return <>
     {
       loading ?
-      <i>Loading</i>
+      <Spinner />
       : gifs.map(({ id, title, url }) => {
         return <Gif key={id} id={id} title={title} url={url} />;
       })
